@@ -1,0 +1,28 @@
+{% extends "portfolio/base.html" %}
+    {% block content %}
+
+    <section id="about-me">
+        <div class="container top-text" data-aos="fade-down">
+            {% for item in about %}
+                    <h3>About Me</h3>
+                    <p>{{item.top_text}}</p>
+                </div>
+                <div class="container">
+                <div class="contact-about">
+                    <div class="flex-box1">
+                        <img src="{{ item.image.url }}" alt="About Me" data-aos="fade-right">
+                    </div>
+                    <div class="flex-box2" data-aos="fade-left">
+                        <h3>{{ item.name }}</h3>
+                        <h5>{{ item.title }}</h5>
+                        <p>
+                            {{ item.about_me }}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+        
+    </section>
+
+{% endblock %}

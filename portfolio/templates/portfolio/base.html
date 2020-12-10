@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Texturina:wght@100;200;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&family=Piedra&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'portfolio/images/favicon.ico' %}" type="image/x-icon">
+    <title>FRANKLOPHON | PHOTOGRAPY</title>
+    <script src="https://kit.fontawesome.com/ff8000d572.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+<body>
+    <header id="main-header">
+        <div class="container">
+                <h1><span id="logo">FRANK</span>LOPHON.</h1>
+
+                <a href="#" class="toggle-nav">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </a>
+
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About me</a></li>
+                        <li><a href="{% url 'contact' %}">contact</a></li>
+                        <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                        <li><a href="{% url 'blog' %}">blog</a></li>
+                    </ul>
+                    
+                </nav>
+        </div>
+    </header>
+
+
+    {% block content %}{% endblock %}
+
+
+    <footer id="main-footer">
+        <p>Contact me on:</p>
+
+        <div class="social">
+            <ul>
+                <li><a href="https://www.facebock.com/frank.john.2211", target="_blank"> <i class="fab fa-facebook"></i> </a></li>
+                <li><a href="https://www.instagram.com/franklophon", target="_blank"> <i class="fab fa-instagram"></i> </a></li>
+                <li><a href="https://www.twitter.com/Osaretinfrank3", target="_blank"> <i class="fab fa-twitter"></i> </a></li>
+                <li><a href="https://www.github.com/osas2211", target="_blank"> <i class="fab fa-github"></i> </a></li>
+                <li><a href="https://www.linkedin.com/in/osaretin-osariemen-frank-03047a1a6", target="_blank"> <i class="fab fa-linkedin"></i> </a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            Osaretin Frank Web Designs  &copy; 2020
+        </div>
+    </footer>
+
+
+    <script src="{% static 'portfolio/js/main.js' %}">
+        
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+          delay:50,
+      });
+    </script>
+</body>
+</html>

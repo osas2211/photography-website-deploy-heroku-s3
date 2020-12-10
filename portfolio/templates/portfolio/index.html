@@ -1,0 +1,61 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+
+        <!--------------------SHOWCASE----------------------->
+    <div class="container">
+        <div class="showcase" data-aos="fade-down">
+
+            {% for item in showcase %}
+                <h1>{{ item.heading }}</h1>
+                <p>{{ item.body }}</p>
+            {% endfor %}
+            
+            
+        </div>
+    </div>
+        <!----------------PHOTOGALLARY------------------------->
+    <div class="container">
+        <div class="flex-container">
+            {% for photo in page_obj %}
+            <div class="box photo" data-aos="fade-left">  
+                <a href="{{ photo.images.url }}"><img src="{{ photo.images.url }}" alt="{{photo.date_posted|date:'F d, Y'}}"> </a></div>
+            {% endfor %}
+            
+        </div>
+    </div>
+
+
+        <!--------------------PAGINATION------------------------->
+    <div class="container" id="pagination">
+
+        
+            {% if page_obj.has_previous %}
+                <a href="?page=1" style="padding: 10px;">FIRST</a>
+                <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <a href="?page={{ num }}" class="active">{{ num }}</a>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:3 %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" style="padding: 10px;">LAST</a>
+            {% endif %}
+
+            
+
+        
+    </div>
+
+    
+
+{% endblock %}
+
+ 

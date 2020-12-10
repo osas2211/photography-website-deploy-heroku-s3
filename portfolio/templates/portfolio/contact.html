@@ -1,0 +1,42 @@
+{% extends "portfolio/base.html" %}
+    {% block content %}
+
+    <section>
+        <div class="container">
+            <div class="contact">
+            <div class="contact-about">
+                <div class="flex-box1">
+                    <p>I'd love to hear from you! Send me a message using the Contact Form, or Call Me. </p>
+                    <p>Phone: +234 806 020 8486</p>
+                    <p> Email: osaretin.frank10@gmail.com</p>
+                </div>
+                <div class="flex-box2">
+                    <form action="{% url 'contact' %}" method="post">
+                        {% csrf_token %}
+                        <fieldset>
+                            <legend>Contact Me</legend>
+                            <label for="">
+                                Name <input type="text" placeholder="" name="msg-name">
+                            </label>
+                            <label for="">
+                                Email address <input type="email" placeholder="" name="msg-email">
+                            </label>
+
+                            <label for="">
+                                Phone <input type="number" placeholder="" name="msg-phone">
+                            </label>
+                            <label for="textarea">
+                                Your message   <textarea name="message" id="" cols="30" rows="10"></textarea>
+                            </label>
+                            <button type="submit">Send</button>
+                        </fieldset>
+                        
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
